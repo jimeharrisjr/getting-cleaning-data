@@ -31,8 +31,7 @@ featurenames<-gsub('-','',featurenames)
 featurenames<-gsub('[()]','',featurenames)
 featurenames<-gsub('^t', 'time', featurenames)
 featurenames<-gsub('^f', 'frequency', featurenames)
-featurenames<-gsub('freq$', 'frequency', featurenames)
-featurenames<-gsub('bodybody','body', featurenames)
+featurenames<-gsub('bodybody','body', featurenames) # apparent typo in the original data
 # set the column names of test and train to the feature names
 colnames(xtest)<-colnames(xtrain)<-featurenames
 # # 4 satisfied - "Appropriately labels the data set with descriptive variable names."
