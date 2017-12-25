@@ -1,0 +1,56 @@
+Understanding the variable names in the file “tidysummary.txt” :
+
+The variables defined in the columns of this file are averages of mean and standard deviation measurements from accelerometer and gyroscope 3-axial raw signals of a Samsung Galaxy S II smartphone worn by 30 different volunteers (1-30) while performing the following actions:
+
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+The original raw data are available here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+## How to read this dataset
+
+The first two columns ('subjectnumber' and 'activityname') represent the identifying number assigned to each subject(1-30), and the action performed by that subject (see above).
+
+The subsequent columns are described below:
+
+- "time" vs "frequency":
+The raw data included time-domain and frequency-domain analysis of the signals from the phone. Therefore, averages of time-domain measurements begin with the word "time," (such as 'timebodyaccelerationmeanxaxis') and frequency-domain values begin with the word "frequency" (such as 'frequencybodyaccelerationmeanyaxis').
+
+- "body" vs "gravity":
+The original data differentiated between acceleration due to gravity and acceleration due to movement of the subject's body, so this summary does, as well. after "time" or "frequency," the measurement indicates which type of measurement by "body" or "gravity"
+
+- "acceleration" vs "gyro"
+Some measurements from the phone come from the accelerometer, and others from the gyroscope. Accelerometer measurements are distinguished by "acceleration" and gyroscope measurements by "gyro."
+
+- "jerk"
+From the original data set, according to the authors, "body linear acceleration and angular velocity were derived in time to obtain Jerk signals." These variables are noted with the addition of the word "jerk."
+
+- "magnitude"
+In some cases, the Euclidian magnitude of the three-axis was calculated in the original data, and appears in the means provided in this data set. Those variables representing magnitude values are therefore marked with the word "magnitude."
+
+- "mean" vs "standarddeviation" vs "meanfreq"
+This dataset was derived from the mean and standard deviations recorded in the original data. Where the data represents mean values, it is labeled "mean," and where it represents standard deviation, it is labeled "standarddeviation." In some cases, the measurement is a weighted average of the frequency components, in which case it is designated a "meanfreq."
+
+- "[x-z]axis"
+Finally, some measurements are averages from a single axis of the gyroscope or accelerometer. These are labeled "xaxis," "yaxis," or "zaxis," to denote which axis they represent.
+
+From the above, it becomes obvious that 'timebodygyrojerkmagnitudestandarddeviation' can be parsed as follows:
+time - time domain measurement
+body - measurement of the body's acceleration (as opposed to gravity)
+gyro - measured	from the gyroscope (as opposed to the accelerometer)
+jerk - refers to a jerk measurement derivation
+magnitude - refers to the euclidian magnitude of the three axis measurements
+standrddeviation - devices from the standard deviation reported in the original data
+
+similarly, 'frequencybodyaccelerationmeanfreqzaxis' can be parsed as such:
+frequency - frequency-domain measurement
+body - measurement of the body's acceleration (as opposed to gravity)
+acceleration - measurement from the accelerometer (linear acceleration)
+meanfreq - measurement of the average of the frequency components
+zaxis - z-axis specific measurements
+
+
