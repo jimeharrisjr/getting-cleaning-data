@@ -25,19 +25,21 @@ featurenames<-read.table('UCI HAR Dataset/features.txt', stringsAsFactors = FALS
 featurenames<-featurenames$V2
 featurenames<-gsub('Acc','acceleration',featurenames)
 featurenames<-gsub('Mag','magnitude',featurenames)
+featurenames<-gsub('std()', 'standarddeviation', featurenames)
 featurenames<-tolower(featurenames)
 featurenames<-gsub('-','',featurenames)
 featurenames<-gsub('[()]','',featurenames)
 featurenames<-gsub('^t', 'time', featurenames)
 featurenames<-gsub('^f', 'frequency', featurenames)
 featurenames<-gsub('freq$', 'frequency', featurenames)
+featurenames<-gsub('bodybody','body', featurenames)
 # set the column names of test and train to the feature names
 colnames(xtest)<-colnames(xtrain)<-featurenames
 # # 4 satisfied - "Appropriately labels the data set with descriptive variable names."
 
 # use dplyr to gt all of the "mean","meanfreq", and "std" rownames by removing the "angle" ,
 # then grep the remaining list with "mean" or "std" - unlist them into a vector, and store in "nms" 
-nms<-featurenames %>% lapply(function(x){x[which(!grepl('^angle',x))]}) %>% lapply(function(x){x[which(grepl('mean',x) | grepl('std',x))]}) %>% unlist
+nms<-featurenames %>% lapply(function(x){x[which(!grepl('^angle',x))]}) %>% lapply(function(x){x[which(grepl('mean',x) | grepl('standarddeviation',x))]}) %>% unlist
 # cbind subject and activity to measurements
 df1<-cbind(subjectnumbertrain, activitytrain, xtrain)
 df2<-cbind(subjectnumbertest, activitytest, xtest)
