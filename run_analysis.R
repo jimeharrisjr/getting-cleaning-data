@@ -1,5 +1,11 @@
 library(dplyr)
 library(data.table)
+# This script produces a summary tidy dataset of average values of measurements from a Samsung phone accelerometer
+# for different subjects performing each of a set of movements. This is based upon the following publication:
+# [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. 
+#   Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. 
+#   International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
 # get the data tables from the train and test sets
 xtest<-read.table('UCI HAR Dataset/test/X_test.txt', stringsAsFactors = FALSE)
 xtrain<-read.table('UCI HAR Dataset/train/X_train.txt', stringsAsFactors = FALSE)
