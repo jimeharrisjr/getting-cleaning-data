@@ -44,12 +44,12 @@ df<-select(df,nms)
 # #2 now satisfied - Extracts only the measurements on the mean and standard deviation for each measurement.
 
 ```
-###Functions of the script:
+### Functions of the script:
 The script reads 'X_test.txt' and 'X_train.txt' and assigns each to a data frame (xtest and xtrain, respectively).
 
 Column names for the test and train data are altered into a more readable format by reading 'features.txt' into a variable called "features," coverting it to a vector, and altering the names to remove punctuation marks, capitalization, an apparent typo ('bodybody'), and potentially confusing abbreviations using 'gsub' and 'tolower.' This name vector replaces the column headings for each set using 'colnames.' (accomplishing #4)
 
-The script creates an activity number column by reading 'y_test.txt' and 'y_train.txt' into ytest and ytrain, respectively.
+The script creates an activity number column by reading 'y_test.txt' and 'y_train.txt' into activitytest and activitytrain, respectively.
 Subject data are added by reading 'subject_test.txt' and 'subject_train.txt' into columns called subjectnumbertest and subjectnumbertrain.
 
 Two data frames (df1 and df2) are created for the test and train data by using 'cbind' to combine the subject number and the activity number to their respective data.The two resulting data frames are combined using 'rbind' into one data set, "df." (accomplishing #1).
